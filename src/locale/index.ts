@@ -1,6 +1,7 @@
 // This file is generated automatically by `scripts/build/indices.ts`. Please, don't change it.
 
 export { default as af } from './af/index'
+export { default as am } from './am/index'
 export { default as ar } from './ar/index'
 export { default as arDZ } from './ar-DZ/index'
 export { default as arEG } from './ar-EG/index'
@@ -81,6 +82,7 @@ export { default as sq } from './sq/index'
 export { default as sr } from './sr/index'
 export { default as srLatn } from './sr-Latn/index'
 export { default as sv } from './sv/index'
+export { default as sw } from './sw/index'
 export { default as ta } from './ta/index'
 export { default as te } from './te/index'
 export { default as th } from './th/index'
