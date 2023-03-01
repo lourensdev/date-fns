@@ -47,7 +47,7 @@ const parseMonthPatterns = {
   any: [
     /^Jan/i,
     /^Feb/i,
-    /^Mrt/i,
+    /^(Mrt|Maa)/i,
     /^Apr/i,
     /^Mei/i,
     /^Jun/i,
@@ -56,7 +56,7 @@ const parseMonthPatterns = {
     /^Sep/i,
     /^Okt/i,
     /^Nov/i,
-    /^Dec/i,
+    /^Des/i,
   ] as const,
 }
 

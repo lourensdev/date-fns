@@ -68,7 +68,7 @@ const matchDayPatterns = {
 }
 const parseDayPatterns = {
   narrow: [/^እ/i, /^ሰ/i, /^ሰ/i, /^ረ/i, /^ሐ/i, /^ሐ/i, /^ቅ/i] as const,
-  any: [/^እ/i, /^ሰ/i, /^ሰ/i, /^ረ/i, /^ሐ/i, /^ዓ/i, /^ቅ/i] as const,
+  any: [/^እ/i, /^ሰ/i, /^ም/i, /^ዕ/i, /^ሐ/i, /^አ/i, /^ቅ/i] as const,
 }
 
 const matchDayPeriodPatterns = {
