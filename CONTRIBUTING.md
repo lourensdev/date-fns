@@ -136,11 +136,29 @@ undefined
 
 ### Test build
 
+Before you can do a successful build make sure to run the snapshot generator to see if your language updates are producing valid dates
+
+```bash
+yarn local-snapshot
+```
+
+Then you should also run the pre-build command to prep indexes. Make sure you are running the correct TypeScript version (4.2.4)
+
+```sh
+./scripts/build/build.sh
+```
+
 Build date-fns from source to test in your project. The ouput is equivalent to what gets published on npm with each release.
 
 ```sh
 # replace {YOUR-PROJECT-PATH} with an absolute or relative path to your project root
 env PACKAGE_OUTPUT_PATH="{YOUR-PROJECT-PATH}/node_modules/date-fns" ./scripts/build/package.sh
+```
+
+or run the yarn command but update the path
+
+```bash
+yarn build
 ```
 
 ## Code Style Guide
