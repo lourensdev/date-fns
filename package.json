@@ -25,7 +25,7 @@
     "lint-types": "eslint --config=.ts-eslintrc.js typings.d.ts",
     "locale-snapshots": "env TZ=utc babel-node --extensions .ts,.js ./scripts/build/localeSnapshots/index.js",
     "stats": "cloc . --exclude-dir=node_modules,tmp,.git",
-    "build": "env PACKAGE_OUTPUT_PATH='/Users/lourens.devilliers/Desktop/date-fns-build' ./scripts/build/package.sh"
+    "build": "env PACKAGE_OUTPUT_PATH='/Users/lourens.devilliers/Desktop/date-fns' ./scripts/build/package.sh"
   },
   "husky": {
     "hooks": {
