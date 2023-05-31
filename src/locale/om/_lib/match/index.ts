@@ -3,7 +3,7 @@ import type { Match } from '../../../types'
 import buildMatchFn from '../../../_lib/buildMatchFn/index'
 import buildMatchPatternFn from '../../../_lib/buildMatchPatternFn/index'
 
-const matchOrdinalNumberPattern = /^(\d+)(th|st|nd|rd)?/i
+const matchOrdinalNumberPattern = /^(\d+)(ffaa)?/i
 const parseOrdinalNumberPattern = /\d+/i
 
 const matchEraPatterns = {
@@ -12,13 +12,13 @@ const matchEraPatterns = {
   wide: /^(kiristoos dura|anno domini)/i,
 }
 const parseEraPatterns = {
-  any: [/^b/i, /^(a|c)/i] as const,
+  any: [/^(b|a)/i, /^(od|kb)/i] as const,
 }
 
 const matchQuarterPatterns = {
   narrow: /^[1234]/i,
-  abbreviated: /^q[1234]/i,
-  wide: /^[1234](th|st|nd|rd)? quarter/i,
+  abbreviated: /^q[13]tti|^q[1234]/i,
+  wide: /^Kurmaana [1234](ffaa)?/i,
 }
 const parseQuarterPatterns = {
   any: [/1/i, /2/i, /3/i, /4/i] as const,
@@ -26,8 +26,9 @@ const parseQuarterPatterns = {
 
 const matchMonthPatterns = {
   narrow: /^[jfmasond]/i,
-  abbreviated: /^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)/i,
-  wide: /^(january|february|march|april|may|june|july|august|september|october|november|december)/i,
+  abbreviated:
+    /(amajjii|Gurraandhala|ama|Ebla|caamsaa|waxabajjii|adool|Hagayya|ful|onkololeessa|sad|Muddee)/i,
+  wide: /(amajjii|Gurraandhala|amajjii|Ebla|caamsaa|waxabajjii|adoolessa|Hagayya|fulbaana|onkololeessa|sadaasa|Muddee)/i,
 }
 const parseMonthPatterns = {
   narrow: [
@@ -47,41 +48,42 @@ const parseMonthPatterns = {
   any: [
     /^amajjii/i,
     /^Gurraandhala/i,
-    /^amajjii/i,
+    /^ama/i,
     /^Ebla/i,
     /^caamsaa/i,
     /^waxabajjii/i,
-    /^adoolessa/i,
+    /^adool/i,
     /^Hagayya/i,
-    /^fulbaana/i,
+    /^ful/i,
     /^onkololeessa/i,
-    /^sadaasa/i,
+    /^sad/i,
     /^Muddee/i,
   ] as const,
 }
 
 const matchDayPatterns = {
   narrow: /^[smtwf]/i,
-  short: /^(su|mo|tu|we|th|fr|sa)/i,
+  short: /^(su|mo|tu|we|nuti|fr|sa)/i,
   abbreviated: /^(dilbata|wiiyxata|kibxata|roobii|kamisa|Jimaata|sanbata)/i,
   wide: /^(dilbata|wiiyxata|kibxata|roobii|kamisa|Jimaata|sanbata)/i,
 }
 const parseDayPatterns = {
   narrow: [/^s/i, /^m/i, /^t/i, /^w/i, /^t/i, /^f/i, /^s/i] as const,
-  any: [/^su/i, /^m/i, /^tu/i, /^w/i, /^th/i, /^f/i, /^sa/i] as const,
+  short: [/su/i, /mo/i, /tu/i, /we/i, /nuti/i, /fr/i, /sa/i] as const,
+  any: [/^dil/i, /^wii/i, /^ki/i, /^ro/i, /^ka/i, /^ji/i, /^sa/i] as const,
 }
 
 const matchDayPeriodPatterns = {
-  any: /^(a|p|mi|n|halkan walakkaa|ganama|waaree booda|galgala galgala|halkan)/i,
+  any: /^am|^a\.m\.|^a|^pm|^p\.m\.|^p|mi|n|(halkan walakkaa)|ganama|(waaree booda)|(galgala galgala)|halkan/i,
 }
 const parseDayPeriodPatterns = {
   any: {
-    am: /^a/i,
-    pm: /^p/i,
-    midnight: /halkan walakkaa/i,
+    am: /^am|^a\.m\|^a./i,
+    pm: /^pm|^p\.m\|^p./i,
+    midnight: /^mi|(halkan walakkaa)/i,
     noon: /waaree/i,
     morning: /ganama/i,
-    afternoon: /waaree booda/i,
+    afternoon: /(waaree booda)/i,
     evening: /galgala/i,
     night: /halkan/i,
   },
